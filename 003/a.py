@@ -48,8 +48,7 @@ merged_df = pd.merge(df1, df2, on='PLAYER_ID')
 merged_df = pd.merge(merged_df, df3, on='PLAYER_ID')
 merged_df = pd.merge(merged_df, df4, on='PLAYER_ID')
 
-merged_df["FG3A"] = merged_df["FG3A_VERY_TIGHT"] + merged_df["FG3A_TIGHT"] + \
-    merged_df["FG3A_OPEN"] + merged_df["FG3A_WIDE_OPEN"]
+merged_df["FG3A"] = merged_df["FG3A_VERY_TIGHT"] + merged_df["FG3A_TIGHT"] + merged_df["FG3A_OPEN"] + merged_df["FG3A_WIDE_OPEN"]
 
 # FG3Aが100本以上の選手だけ抽出
 merged_df = merged_df[merged_df["FG3A"] >= 100]
@@ -59,8 +58,7 @@ merged_df["TIGHT_RATIO"] = merged_df["FG3A_TIGHT"] / merged_df["FG3A"]
 merged_df["OPEN_RATIO"] = merged_df["FG3A_OPEN"] / merged_df["FG3A"]
 merged_df["WIDE_OPEN_RATIO"] = merged_df["FG3A_WIDE_OPEN"] / merged_df["FG3A"]
 
-merged_df = merged_df[["PLAYER_ID", "PLAYER_NAME",
-                       "VERY_TIGHT_RATIO", "TIGHT_RATIO", "OPEN_RATIO", "WIDE_OPEN_RATIO"]]
+merged_df = merged_df[["PLAYER_ID", "PLAYER_NAME", "VERY_TIGHT_RATIO", "TIGHT_RATIO", "OPEN_RATIO", "WIDE_OPEN_RATIO"]]
 
 
 merged_df = merged_df.sort_values("WIDE_OPEN_RATIO", ascending=False)
